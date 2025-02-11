@@ -7,7 +7,7 @@ function(Controller, MessageBox){
 
     return Controller.extend("sap.training.exc.controller.App", {
         onHello : function (){
-            MessageBox.information("Hello world");
+            MessageBox.information("Hello guys");
         }
     });
 });
