@@ -1,5 +1,6 @@
 <mvc:View controllerName="sap.training.exc.controller.Overview"
-          xmlns:mvc="sap.ui.core.mvc"  xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+          xmlns:mvc="sap.ui.core.mvc"  xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m"
+          core:require="{formatter: 'sap/training/exc/model/formatter'}">
           <Page title="Flight Customers">
   <content>
     <Panel headerText="New Customer" expandable="true" expanded="true"
@@ -93,7 +94,7 @@
         style: 'medium'
         }
         }"/>
-        <Text text="{Class}"/>
+        <Text text="{path: 'Class', formatter: 'formatter.classText'}"/>
         <ObjectNumber
         number="{
         parts: [
