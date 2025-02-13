@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "sap/ui/Device"
+    "sap/ui/Device",
+    "sap/ui/model/json/JSONModel"
 ],
-    function (UIComponent, Device) {
+    function (UIComponent, Device, JSONModel) {
         "use strict";
 
         return UIComponent.extend("sap.training.exc.Component", {
@@ -11,7 +12,13 @@ sap.ui.define([
             },
 
             init: function (){
+                //call the base compo init function
                 UIComponent.prototype.init.apply(this, arguments);
+
+                //set device model
+                var oDeviceModel = new JSONModel(Device);
+                oDeviceModel.setDefaultBindingMode("OneWay");
+                this.setModel(oDeviceModel, "device")
             },
             
             getContentDensityClass: function () {
