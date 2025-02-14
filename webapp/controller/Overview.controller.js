@@ -57,9 +57,13 @@ sap.ui.define([
                 var oBinding = oTable.getBinding("items");
                 oBinding.filter(aFilter);
             },
-            onNavToDetails: function () {
+            onNavToDetails: function (oEvent) {
+              var oItem = oEvent.getSource();
               var oRouter = this.getOwnerComponent().getRouter();
-              oRouter.navTo("detail");
+
+              oRouter.navTo("detail", {
+                customerId: oItem.getBindingContext().getPath().substring("/UX_Customer".length)
+              });
             }              
 
         });
